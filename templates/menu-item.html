@@ -1,0 +1,9 @@
+<ul>
+    <% _.forEach(members, function(m) { %>
+        <li>
+            <a href="#<%= m.login %>">
+                <%= m.login %>
+            </a>
+        </li>
+    <% }); %>
+</ul>
