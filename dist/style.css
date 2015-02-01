@@ -1086,12 +1086,13 @@ html, body, .github-grid, .github-grid > *:nth-child(1) {
   .github-grid > *:nth-child(2) .forks:before {
     content: "forks"; }
 
-@-webkit-keyframes fadeDown{
-  0%{
+@-webkit-keyframes fadeDown {
+  0% {
     opacity: 0;
     -webkit-transform: translateY(-2em) translateZ(0);
             transform: translateY(-2em) translateZ(0); }
-  100%{
+
+  100% {
     opacity: 1;
     -webkit-transform: translateY(0) translateZ(0);
             transform: translateY(0) translateZ(0); } }

@@ -18,8 +18,11 @@ function app(){
         // start app?
         //
         //
-        var token = "da9d4d1c7a5011d319df5dadafa06543f56cbf00";
+        var token = "ad25ca0322aa86f9332ee5452becc715b28adc85";
         window.gh = new GithubClient(token);
+
+        // var profile_url ="./templates/menu-item.html";
+        // var menu_item_url="./templates/profile.html";
     })
 
 }
