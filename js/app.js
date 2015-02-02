@@ -16,10 +16,9 @@ function app(){
     ).then(function(){
         document.querySelector("html").style.opacity = 1;
         // start app?
-        //
-        //
+        
         var token = "ad25ca0322aa86f9332ee5452becc715b28adc85";
-        window.gh = new GithubClient(token);
+        new GithubClient(token);
 
         // var profile_url ="./templates/menu-item.html";
         // var menu_item_url="./templates/profile.html";
