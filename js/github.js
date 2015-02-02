@@ -4,6 +4,10 @@
         this.token = token;//constructor
         this.members = [];//constructor
         this.repos = [];//constructor
+<<<<<<< HEAD
+=======
+        
+>>>>>>> master
         var self = this;//created as a reference pointing to the function it is inside of
         
         var GithubRouter = Backbone.Router.extend({
@@ -21,19 +25,32 @@
         })
         var router = new GithubRouter();//new instance
 
+<<<<<<< HEAD
         this.draw();
+=======
+               this.draw();
+>>>>>>> master
     };
 
     GithubClient.prototype = {
         URLs: {
             members: "https://api.github.com/orgs/TIY-Houston-Front-End-Engineering/members",
             repos: "https://api.github.com/users/"
+<<<<<<< HEAD
+=======
+           
+>>>>>>> master
         },
         access_token: function(){
             return "?access_token=" + this.token;
         },
+<<<<<<< HEAD
         repo_token: function(){
             return "/repos?access_token" + this.token;
+=======
+        repos_token: function(){
+            return "/repos?access_token=" + this.token;
+>>>>>>> master
         },
     //     *
     //      * getData
@@ -51,7 +68,7 @@
                 p.then(function(data){
 
                     x.resolve(data);
-                    this.members = data;
+                    self.members = data;
                 })
             }
 
@@ -61,10 +78,17 @@
         loadTemplate: function(name){
             // modify the event context, return only the data
             return $.get("./templates/"+name+".html").then(function(data) { //request for names
+<<<<<<< HEAD
                 return data;})
         },
 
         
+=======
+                return data; 
+            });
+        },
+
+>>>>>>> master
         draw: function(){//getting name info
             $.when(                       //used for more than one request at same time
                 this.getData(),//renamed above
@@ -76,10 +100,19 @@
             })
         },
 
+<<<<<<< HEAD
+=======
+        // drawRepoInfo: function() {///-->STOPPED HERE; getting repo info
+        //     $.when (
+        //         this.getDatafromUser,
+        //         this.loadTemplate ("menu-item")
+        // ).then(function(repos, html) {
+>>>>>>> master
         drawUser: function(username){//bringing everything together??
             // load data load template draw to screen
             $.when(
                 this.getData(username), 
+<<<<<<< HEAD
                 this.loadTemplate("right")
             ).then(function(members, html) {
                 debugger;
@@ -100,6 +133,26 @@
       
         
     }
+=======
+                this.loadTemplate("profile")
+                ).then(function(members, html) {
+                debugger;
+                var user_view = document.querySelector(".github-grid > *:nth-child(2)");
+                user_view.innerHTML = _.template(html, { members: members, user: username });      
+      })
+        
+    },
+    drawRepo: function(username){
+           
+            $.when(
+                $.get(this.URLs.repos + username + this.repos_token()),
+                this.loadTemplate("repos")
+            ).then(function(repos, html){
+              var repo_view = document.querySelector(".github-grid > *:nth-child(2)");
+              repo_view.innerHTML += _.template(html, { repos: repos[0], user: username });
+          })
+        }
+>>>>>>> master
 };
 
     window.GithubClient = GithubClient;//global variable b/c of window.

@@ -1,0 +1,9 @@
+
+<% _.forEach(members, function(m) { 
+    if (m['login'] === user) { %>
+    <div class="<%= m.login %>">
+        <img src="<%= m.avatar_url %>">
+        <p><%= m.login %></p>
+    </div>
+<%  }
+}) %>
